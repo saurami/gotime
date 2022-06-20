@@ -56,3 +56,19 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+
+  report:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-go@v3
+      with:
+        go-version: "1.18"
+        
+    - name: Test With Coverage
+      run: go test -race -coverprofile=coverage.out -covermode=atomic ./...
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
