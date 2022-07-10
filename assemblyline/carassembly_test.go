@@ -28,9 +28,10 @@ func TestProductionCost(t *testing.T) {
 		got uint32
 		want uint32
 	}{
-		{"individual cars only", calculateProductionCost(6),  60000},
-		{"two groups of cars",   calculateProductionCost(21), 200000},
-		{"three groups of cars", calculateProductionCost(37), 355000},
+		{"individual cars only",      calculateProductionCost(6),  60000},
+		{"exactly one group of cars", calculateProductionCost(10), 95000},
+		{"two+ groups of cars",       calculateProductionCost(21), 200000},
+		{"three+ groups of cars",     calculateProductionCost(37), 355000},
 	}
 
 	for _, test := range tests {
