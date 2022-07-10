@@ -15,7 +15,7 @@ func calculateProductionCost(numCars uint32) uint32 {
 	var carCost uint32 = 10000
 	var carGroupCost uint32 = 95000  // group of 10 cars
 
-	if numCars > 10 {
+	if numCars >= 10 {
 		individualCars := numCars % 10
 		groupsOfTen := numCars / 10
 		return (groupsOfTen * carGroupCost) + (individualCars * carCost)
