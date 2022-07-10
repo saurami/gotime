@@ -11,3 +11,15 @@ func calculateWorkingCarsPerMinute(carsProducedPerHour int, successRate float64)
 	return int(workingCars)
 }
 
+func calculateProductionCost(numCars uint32) uint32 {
+	var carCost uint32 = 10000
+	var carGroupCost uint32 = 95000  // group of 10 cars
+
+	if numCars % 10 > 0 {
+		individualCars := numCars % 10
+		groupsOfTen := numCars / 10
+		return (groupsOfTen * carGroupCost) + (individualCars * carCost)
+	} else {
+		return numCars * carCost
+	}
+}
