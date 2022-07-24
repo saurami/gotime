@@ -61,7 +61,7 @@ func TestVehicleResellPrice(t *testing.T) {
 	for _, testcase := range tests {
 		t.Logf("testing resell price for %s", testcase.description)
 		if testcase.got != testcase.want {
-			t.Errorf("Error with resell price ... got %v, want %v", testcase.got, testcase.want)
+			t.Errorf("Error with resell price ... got %v, want %f", testcase.got, testcase.want)
 		}
 	}
 }
