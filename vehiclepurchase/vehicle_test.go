@@ -46,3 +46,22 @@ func TestVehicleSelection(t *testing.T) {
 		}
 	}
 }
+
+func TestVehicleResellPrice(t *testing.T) {
+	var tests = []struct {
+		description string
+		got float64
+		want float64
+	}{
+		{"new vehicle", calculateResellPrice(1000, 1), 800},
+		{"used vehicle", calculateResellPrice(1000, 5), 700},
+		{"old vehicle", calculateResellPrice(1000, 15), 500},
+	}
+
+	for _, testcase := range tests {
+		t.Logf("testing resell price for %s", testcase.description)
+		if testcase.got != testcase.want {
+			t.Errorf("Error with resell price ... got %v, want %v", testcase.got, testcase.want)
+		}
+	}
+}
