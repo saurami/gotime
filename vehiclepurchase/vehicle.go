@@ -20,6 +20,14 @@ func chooseVehicle(option1, option2 string) string {
 }
 
 func calculateResellPrice(price uint16, age uint8) float64 {
-	// todo
-	return 0.0
+	var estimatedPrice float64
+
+	if age < 3 {
+		estimatedPrice = float64(price) * 0.8
+	} else if age >= 3 && age < 10 {
+		estimatedPrice = float64(price) * 0.7
+	} else { // age >= 10
+		estimatedPrice = float64(price) * 0.5
+	}
+	return estimatedPrice
 }
